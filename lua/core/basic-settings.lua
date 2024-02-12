@@ -1,7 +1,7 @@
 local opt = vim.opt
 -- set <Leader> key to space
 vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
+vim.g.maplocalleader = ","
 opt.confirm = true
 opt.completeopt = "menu,menuone"
 -- relative line numbers
@@ -47,7 +47,7 @@ opt.undofile = true
 opt.splitright = true
 
 vim.api.nvim_create_autocmd("TextYankPost", {
-	command = ":silent! lua vim.highlight.on_yank({timeout=250})"
+    command = ":silent! lua vim.highlight.on_yank({timeout=250})"
 })
 
 vim.api.nvim_create_user_command("CDC", "cd %:p:h", {})

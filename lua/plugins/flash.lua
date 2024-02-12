@@ -4,10 +4,10 @@ return {
 	opts = {},
 	-- stylua: ignore
 	keys = {
-		{'f','f'},
-		{'F','F'},
-		{'t','t'},
-		{'T','T'},
+		{'f','f', mode = {"n","o", "x"}},
+		{'F','F', mode = {"n","o", "x"}},
+		{'t','t', mode = {"n","o", "x"}},
+		{'T','T', mode = {"n","o", "x"}},
 		{ "<leader>s", mode = { "n", "o", "x" }, function() require("flash").jump() end, desc = "Search (Flash)" },
 		{ "<leader>S", mode = { "n", "o", "x" }, function() require("flash").treesitter() end, desc = "Search node Treesitter (Flash)" },
 		{ "<leader>r", mode = "o", function() require("flash").remote() end, desc = "Remote Search (Flash)" },

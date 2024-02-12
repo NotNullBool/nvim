@@ -7,7 +7,10 @@ return {{
         require 'nvim-treesitter.install'.prefer_git = false
         return {
             --enable syntax highlighting
-            indent = { enable = true },
+            indent = {
+                enable = true,
+                disable = {"c_sharp"},
+            },
             highlight = { enable = true },
             incremental_selection = {enable = true},
             endwise = { enable = true }

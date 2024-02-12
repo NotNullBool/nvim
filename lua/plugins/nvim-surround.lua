@@ -5,4 +5,4 @@ return {{
 	opts = {
 		highlight = {duration = 0}
 	},
-},{ "XXiaoA/ns-textobject.nvim", keys = { "ys", "ds", "cs",}, dependencies = {"NotNullBool/nvim-surround"}, opts = {}}}
+},{ "XXiaoA/ns-textobject.nvim", enabled = false, keys = { "ys", "ds", "cs",}, dependencies = {"NotNullBool/nvim-surround"}, opts = {}}}

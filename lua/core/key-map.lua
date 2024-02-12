@@ -3,6 +3,9 @@ keymap.set('i', "<C-L>", "<right>")
 keymap.set('i', "<C-H>", "<left>")
 keymap.set('i', "<C-J>", "<down>")
 keymap.set('i', "<C-K>", "<up>")
+
+keymap.set('n', "<localleader>ff", "gg=G''", {desc="format file", silent =true})
+
 keymap.set('n', "J", "mzJ`z", {desc = "Append next line", silent = true})
 
 keymap.set('n', 'n', "nzzzv", {silent = true})
@@ -51,8 +54,8 @@ keymap.set('c', "<C-j>", "<C-n>")
 keymap.set('n', '0', ":silent! call search('^.')<CR>^", {silent = true})
 
 keymap.set('n', '<leader>lz', function ()
-	vim.opt.lazyredraw = not vim.opt.lazyredraw:get()
-	print(string.format("Lazy redraw is: %s", vim.opt.lazyredraw:get()))
+    vim.opt.lazyredraw = not vim.opt.lazyredraw:get()
+    print(string.format("Lazy redraw is: %s", vim.opt.lazyredraw:get()))
 end, {desc= "Toggle lazy redraw."})
 
 -- Allow me to tab over specified chars.
@@ -72,16 +75,16 @@ keymap.set('i', "<TAB>",function ()
 end, {expr = true, silent = true})
 
 keymap.set('c', "<CR>", function ()
-	if vim.fn.pumvisible() == 1 then
-		return "<C-y>"
-	end
-	return "<CR>"
+    if vim.fn.pumvisible() == 1 then
+        return "<C-y>"
+    end
+    return "<CR>"
 end, { expr = true })
 
 keymap.set("n", "i", function()
-	if #vim.fn.getline "." == 0 then
-		return [["_cc]]
-	else
-		return "i"
-	end
+    if #vim.fn.getline "." == 0 then
+        return [["_cc]]
+    else
+        return "i"
+    end
 end, { expr = true })
