@@ -23,6 +23,17 @@ return {{
                 local server_capabilities = client.server_capabilities
                 opts.buffer = bufnr
 
+
+                vim.api.nvim_create_autocmd({'CursorHold', 'CursorHoldI'},{
+                    buffer = bufnr,
+                    callback = vim.lsp.buf.document_highlight,
+                })
+
+                vim.api.nvim_create_autocmd({'CursorMoved', 'CursorMovedI'},{
+                    buffer = bufnr,
+                    callback = vim.lsp.buf.clear_references,
+                })
+
                 if server_capabilities.referencesProvider then
                     opts.desc = "Show LSP references"
                     keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
@@ -73,7 +84,7 @@ return {{
                     keymap.set('i', "<C-K>", vim.lsp.buf.signature_help, opts)
                 end
 
-                if (vim.version().minor > 9) and server_capabilities.inlayHintProvider then
+                if (vim.version().minor > 10) and server_capabilities.inlayHintProvider then
                     vim.lsp.inlay_hint(bufnr, true)
                     -- neovim issue(#24075) soft tab stop breaks backspace on inline virtual text
                     if vim.bo.softtabstop ~= 0 then
@@ -209,7 +220,7 @@ return {{
                                 enable = true,
                                 ignored = {
                                     ["async-trait"] = { "async_trait" },
-                                ["napi-derive"] = { "napi" },
+                                    ["napi-derive"] = { "napi" },
                                     ["async-recursion"] = { "async_recursion" },
                                 },
                             },

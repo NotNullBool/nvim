@@ -51,3 +51,4 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 vim.api.nvim_create_user_command("CDC", "cd %:p:h", {})
+
