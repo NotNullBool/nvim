@@ -34,7 +34,7 @@ return{
 			-- show the '~' characters after the end of buffers
 			show_end_of_buffer = false, -- default false
 			-- use transparent background
-			transparent_bg = true, -- default false
+			-- transparent_bg = true, -- default false
 			-- set custom lualine background color
 			-- lualine_bg_color = "#44475a", -- default nil
 			-- set italic comment
